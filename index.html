@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financial Dashboard</title>
+
+  <!-- Google Fonts: Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS via CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="nice-scroll ">
+
+  <div class="flex h-screen overflow-hidden">
+
+    <!-- =================================================================
+         SIDEBAR (Neumorphic Light)
+    ================================================================== -->
+    <aside id="sidebar" class="sidebar fixed inset-y-0 left-0 z-40 w-72 bg-sidebar border-r border-slate-200/60 flex flex-col md:static md:translate-x-0">
+      
+      <!-- Brand -->
+      <div class="flex items-center gap-4 px-6 h-20 border-b border-slate-200/60">
+        <div class="grid place-items-center w-10 h-10 rounded-xl bg-sidebar shadow-[inset_2px_2px_5px_rgba(255,255,255,0.7),inset_-2px_-2px_5px_rgba(166,180,200,0.3)] border border-white/50 text-[#1E3A5F]">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+            <path d="M5 4h14M5 4v16M5 12h9"/>
+          </svg>
+        </div>
+        <div class="leading-tight">
+          <h1 class="text-lg font-bold tracking-tight text-slate-800">FinSight</h1>
+          <p class="text-xs text-slate-500 font-medium tracking-wide">Enterprise</p>
+        </div>
+        <button id="sidebarCloseBtn" class="ml-auto md:hidden p-2 rounded-lg text-slate-500 hover:bg-slate-200/50 transition-colors">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M18 6 6 18"/><path d="M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <!-- Nav Links -->
+      <nav class="flex-1 overflow-y-auto nice-scroll px-4 py-6 space-y-2">
+        <p class="px-4 pb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">Main Menu</p>
+        
+        <a href="#" data-nav="dashboard" class="sidebar-nav-item active">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M3 12 12 3l9 9"/><path d="M5 10v10h14V10"/><path d="M10 20v-6h4v6"/></svg>
+          Dashboard
+        </a>
+        
+        <a href="#" data-nav="pengawasan" class="sidebar-nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+          Pengawasan & Audit
+        </a>
+        
+        <a href="#" data-nav="tlhp" class="sidebar-nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="m9 15 2 2 4-4"/></svg>
+          Tindak Lanjut (TLHP)
+        </a>
+        
+        <a href="#" data-nav="gratifikasi" class="sidebar-nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          LHKPN & Gratifikasi
+        </a>
+
+        <a href="#" data-nav="pengaduan" class="sidebar-nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          Pengaduan Masyarakat
+        </a>
+
+        <p class="px-4 pt-6 pb-2 text-[11px] font-bold uppercase tracking-widest text-slate-400">Settings</p>
+        
+        <a href="#" data-nav="pengaturan" class="sidebar-nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.8-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.8 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.8.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.8-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.8V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1z"/></svg>
+          Pengaturan
+        </a>
+      </nav>
+
+    </aside>
+
+    <!-- Mobile Overlay -->
+    <div id="sidebarOverlay" class="overlay fixed inset-0 z-30 bg-slate-900/40 backdrop-blur-sm opacity-0 pointer-events-none md:hidden"></div>
+
+    <!-- =================================================================
+         MAIN CONTENT AREA
+    ================================================================== -->
+    <div class="flex-1 flex flex-col min-w-0 overflow-y-auto nice-scroll">
+      
+      <!-- HEADER (Glassmorphism) -->
+      <header class="sticky top-0 shrink-0 h-20 flex items-center justify-between px-6 lg:px-10 z-20 glass-header border-b">
+        
+        <div class="flex items-center gap-4 flex-1">
+          <button id="sidebarOpenBtn" class="md:hidden neu-btn p-2 text-slate-600">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+          
+          <!-- Neumorphic Search -->
+          <div class="relative w-full max-w-md hidden sm:block">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" placeholder="Search transactions, tags, or reports..." class="neu-input pl-11 py-2.5 rounded-full bg-page" />
+          </div>
+        </div>
+
+        <div class="flex items-center gap-4 md:gap-6 ml-auto">
+          <!-- Theme Toggle -->
+          <button id="themeToggleBtn" type="button" aria-label="Toggle theme" class="neu-btn w-10 h-10 rounded-full flex items-center justify-center text-slate-600">
+            <svg id="themeIconSun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 hidden"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m4.93 19.07 1.41-1.41"/><path d="m17.66 6.34 1.41-1.41"/></svg>
+            <svg id="themeIconMoon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+
+          <!-- Notification -->
+          <button class="relative neu-btn w-10 h-10 rounded-full flex items-center justify-center text-slate-600">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 8 3 8H3s3-1 3-8"/><path d="M10 21a2 2 0 0 0 4 0"/></svg>
+            <span class="dot-pulse absolute top-0 right-0 w-2.5 h-2.5 rounded-full bg-rose-500 border-2 border-page"></span>
+          </button>
+
+          <!-- Divider -->
+          <div class="w-px h-8 bg-slate-200 hidden sm:block shadow-[1px_0_0_rgba(255,255,255,0.8)]"></div>
+
+          <!-- Profile Dropdown -->
+          <div class="relative" id="profileWrap">
+            <button id="profileBtn" class="flex items-center gap-3 p-1 pr-3 rounded-full hover:bg-white/50 transition-colors" aria-haspopup="menu" aria-expanded="false">
+              <div class="w-10 h-10 rounded-full bg-slate-200 shadow-[inset_2px_2px_5px_rgba(166,180,200,0.4),inset_-2px_-2px_5px_rgba(255,255,255,1)] p-0.5">
+                <img src="https://ui-avatars.com/api/?name=Alex+Morgan&background=1E3A5F&color=fff&rounded=true&bold=true" alt="User Avatar" class="w-full h-full rounded-full" />
+              </div>
+              <div class="hidden md:block text-left">
+                <p class="text-sm font-semibold text-slate-800 leading-tight">Anastasio Girsang</p>
+                <p class="text-[11px] font-medium text-slate-500">wkwkwk</p>
+              </div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-slate-400 hidden md:block"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div id="profileMenu" class="hidden opacity-0 scale-95 origin-top-right transition-all absolute right-0 mt-3 w-56 neu-card p-2 z-50">
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 text-sm font-medium text-slate-700 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                My Profile
+              </a>
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-50 text-sm font-medium text-slate-700 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg>
+                Account Settings
+              </a>
+              <div class="h-px bg-slate-100 my-1"></div>
+              <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-rose-50 text-sm font-semibold text-rose-500 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" x2="9" y1="12" y2="12"/></svg>
+                Sign Out
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- MAIN SCROLLABLE CONTENT -->
+      <main class="flex-1 px-6 lg:px-10 pb-10 pt-8">
+        
+        <!-- Page Header -->
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 animate-fade-in-up">
+          <div>
+            <h2 class="text-2xl lg:text-3xl font-bold text-slate-800 tracking-tight">Overview</h2>
+            <p class="text-sm text-slate-500 mt-1">Here's your financial summary for <span class="font-semibold text-slate-700">May 2026</span>.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <div class="neu-inset p-1 flex items-center rounded-lg">
+              <button class="px-4 py-1.5 text-xs font-bold rounded-md bg-white shadow-[0_2px_5px_rgba(0,0,0,0.05)] text-slate-800">Month</button>
+              <button class="px-4 py-1.5 text-xs font-semibold rounded-md text-slate-500 hover:text-slate-800">Quarter</button>
+              <button class="px-4 py-1.5 text-xs font-semibold rounded-md text-slate-500 hover:text-slate-800">Year</button>
+            </div>
+            <button id="addTxnBtnHeader" class="neu-btn-primary px-4 py-2.5 text-sm font-semibold flex items-center gap-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M12 5v14M5 12h14"/></svg>
+              Add Transaction
+            </button>
+          </div>
+        </div>
+
+        <!-- SUMMARY CARDS (Neumorphic) -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+          
+          <!-- Balance -->
+          <div class="neu-card p-6 stat-card animate-fade-in-up opacity-0" style="animation-fill-mode: forwards;">
+            <div class="flex items-center justify-between mb-4">
+              <div class="icon-card-shadow w-12 h-12 rounded-2xl bg-slate-100 flex items-center justify-center text-[#1E3A5F]">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+              </div>
+              <span class="badge badge-success">+4.2%</span>
+            </div>
+            <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">Total Balance</p>
+            <h3 class="text-3xl font-extrabold text-slate-800 tabular-nums">Rp 128.450.000</h3>
+          </div>
+
+          <!-- Income -->
+          <div class="neu-card p-6 stat-card animate-fade-in-up opacity-0" style="animation-fill-mode: forwards;">
+            <div class="flex items-center justify-between mb-4">
+              <div class="icon-card-shadow w-12 h-12 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-600">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+              </div>
+              <span class="badge badge-success">+12.8%</span>
+            </div>
+            <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">Total Income</p>
+            <h3 class="text-3xl font-extrabold text-emerald-600 tabular-nums">Rp 24.300.000</h3>
+          </div>
+
+          <!-- Expense -->
+          <div class="neu-card p-6 stat-card animate-fade-in-up opacity-0" style="animation-fill-mode: forwards;">
+            <div class="flex items-center justify-between mb-4">
+              <div class="icon-card-shadow w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-500">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+              </div>
+              <span class="badge badge-neutral text-slate-500">-3.1%</span>
+            </div>
+            <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-1">Total Expense</p>
+            <h3 class="text-3xl font-extrabold text-rose-500 tabular-nums">Rp 9.870.500</h3>
+          </div>
+
+        </div>
+
+        <!-- MIDDLE SECTION: Chart & Widget -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+          
+          <!-- Mock Chart -->
+          <div class="lg:col-span-2 neu-card p-6 animate-fade-in-up opacity-0" style="animation-delay: 300ms; animation-fill-mode: forwards;">
+            <div class="flex justify-between items-center mb-6">
+              <div>
+                <h3 class="text-lg font-bold text-slate-800">Cash Flow</h3>
+                <p class="text-sm text-slate-500">Income vs Expense (Last 12 Days)</p>
+              </div>
+              <div class="flex items-center gap-4 text-sm font-medium text-slate-600">
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-emerald-500 shadow-[inset_1px_1px_3px_rgba(0,0,0,0.2)]"></span> Income
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="w-3 h-3 rounded-full bg-rose-400 shadow-[inset_1px_1px_3px_rgba(0,0,0,0.2)]"></span> Expense
+                </div>
+              </div>
+            </div>
+
+            <!-- Chart Container -->
+            <div class="h-64 neu-inset p-4 rounded-xl relative">
+              <!-- Y Axis Lines Mock -->
+              <div class="absolute inset-x-4 inset-y-4 flex flex-col justify-between pointer-events-none">
+                <div class="border-b border-dashed border-slate-300 w-full opacity-50"></div>
+                <div class="border-b border-dashed border-slate-300 w-full opacity-50"></div>
+                <div class="border-b border-dashed border-slate-300 w-full opacity-50"></div>
+                <div class="border-b border-dashed border-slate-300 w-full opacity-50"></div>
+              </div>
+              <!-- Bars Rendered via JS -->
+              <div id="mockChart" class="h-full grid grid-cols-12 gap-2 items-end relative z-10 px-2 pb-1"></div>
+            </div>
+            <!-- X Axis Labels Rendered via JS -->
+            <div id="mockChartLabels" class="mt-3 grid grid-cols-12 gap-2 px-6"></div>
+          </div>
+
+          <!-- Quick Transfer / Side Widget -->
+          <div class="neu-card p-6 flex flex-col animate-fade-in-up opacity-0" style="animation-delay: 400ms; animation-fill-mode: forwards;">
+            <h3 class="text-lg font-bold text-slate-800 mb-6">Quick Transfer</h3>
+            
+            <div class="neu-inset p-4 rounded-xl mb-6">
+              <div class="flex justify-between items-center mb-4">
+                <span class="text-sm font-semibold text-slate-500">Send to:</span>
+                <span class="text-xs font-bold text-emerald-600 bg-emerald-50 px-2 py-1 rounded-md">New</span>
+              </div>
+              <!-- Avatars -->
+              <div class="flex items-center gap-3 mb-2">
+                <div class="w-12 h-12 rounded-full neu-flat p-0.5 cursor-pointer border-2 border-transparent hover:border-[#1E3A5F] transition-all">
+                  <img src="https://ui-avatars.com/api/?name=Sarah&background=random" class="w-full h-full rounded-full" />
+                </div>
+                <div class="w-12 h-12 rounded-full neu-flat p-0.5 cursor-pointer border-2 border-[#1E3A5F] transition-all transform scale-110">
+                  <img src="https://ui-avatars.com/api/?name=David&background=random" class="w-full h-full rounded-full" />
+                </div>
+                <div class="w-12 h-12 rounded-full neu-flat p-0.5 cursor-pointer border-2 border-transparent hover:border-[#1E3A5F] transition-all">
+                  <img src="https://ui-avatars.com/api/?name=Emma&background=random" class="w-full h-full rounded-full" />
+                </div>
+                <button class="w-12 h-12 rounded-full neu-btn flex items-center justify-center text-slate-400">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M12 5v14M5 12h14"/></svg>
+                </button>
+              </div>
+              <p class="text-xs text-slate-400 mt-2 text-center">David Miller</p>
+            </div>
+
+            <div class="mb-6 relative">
+              <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold">Rp</span>
+              <input type="text" value="5.000.000" class="neu-input pl-12 py-3 text-lg font-bold text-slate-800 tabular-nums" />
+            </div>
+
+            <button class="mt-auto neu-btn-primary w-full py-3 text-sm font-bold uppercase tracking-wider rounded-xl">
+              Send Money
+            </button>
+          </div>
+        </div>
+
+        <!-- TABLE SECTION -->
+        <div class="neu-card animate-fade-in-up opacity-0" style="animation-delay: 500ms; animation-fill-mode: forwards;">
+          <div class="flex flex-col sm:flex-row justify-between items-center p-6 border-b border-slate-100">
+            <div>
+              <h3 class="text-lg font-bold text-slate-800">Recent Transactions</h3>
+              <p class="text-sm text-slate-500">Your latest financial activities</p>
+            </div>
+            <button id="addTxnBtnTable" class="mt-4 sm:mt-0 neu-btn px-4 py-2 text-sm font-semibold flex items-center gap-2 text-slate-700">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M3 6h18M7 12h10M10 18h4"/></svg>
+              Filter
+            </button>
+          </div>
+
+          <div class="overflow-x-auto nice-scroll p-2">
+            <table class="w-full text-left border-collapse">
+              <thead>
+                <tr>
+                  <th class="py-4 px-5 text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200">Date</th>
+                  <th class="py-4 px-5 text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200">Description</th>
+                  <th class="py-4 px-5 text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200">Category</th>
+                  <th class="py-4 px-5 text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200">Status</th>
+                  <th class="py-4 px-5 text-xs font-bold uppercase tracking-wider text-slate-400 border-b border-slate-200 text-right">Amount</th>
+                </tr>
+              </thead>
+              <tbody id="txnTableBody" class="divide-y divide-slate-100">
+                <!-- Injected via script.js -->
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="p-4 border-t border-slate-100 flex justify-center">
+            <button class="text-sm font-bold text-[#1E3A5F] hover:text-[#2a4d7a] transition-colors">View All Transactions →</button>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- =====================================================================
+       MODAL: Tambah Transaksi (Soft Neumorphic)
+  ====================================================================== -->
+  <div id="modal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+    <!-- Backdrop Blur -->
+    <div id="modalBackdrop" class="modal-backdrop absolute inset-0 bg-slate-900/30 backdrop-blur-md opacity-0"></div>
+
+    <!-- Modal Card -->
+    <div id="modalCard" class="modal-card relative w-full max-w-lg neu-card overflow-hidden opacity-0 translate-y-8 scale-95">
+      
+      <div class="p-6 border-b border-slate-100 flex justify-between items-center bg-white/50">
+        <h3 class="text-xl font-bold text-slate-800">Add New Transaction</h3>
+        <button id="modalCloseBtn" class="neu-btn w-8 h-8 rounded-full flex items-center justify-center text-slate-500">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4"><path d="M18 6 6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+
+      <form id="txnForm" class="p-6 space-y-5 bg-white">
+        
+        <!-- Toggle Type Neumorphic -->
+        <div class="neu-inset p-1.5 flex rounded-xl relative">
+          <label class="flex-1 text-center cursor-pointer">
+            <input type="radio" name="type" value="in" class="peer sr-only" checked />
+            <div class="py-2.5 rounded-lg text-sm font-bold text-slate-500 transition-all peer-checked:bg-white peer-checked:text-emerald-600 peer-checked:shadow-[0_2px_8px_rgba(0,0,0,0.08)]">Income</div>
+          </label>
+          <label class="flex-1 text-center cursor-pointer">
+            <input type="radio" name="type" value="out" class="peer sr-only" />
+            <div class="py-2.5 rounded-lg text-sm font-bold text-slate-500 transition-all peer-checked:bg-white peer-checked:text-rose-500 peer-checked:shadow-[0_2px_8px_rgba(0,0,0,0.08)]">Expense</div>
+          </label>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Description</label>
+          <input type="text" required placeholder="e.g. Client Payment" class="neu-input" />
+        </div>
+
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Date</label>
+            <input type="date" class="neu-input" />
+          </div>
+          <div>
+            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Category</label>
+            <select class="neu-input cursor-pointer appearance-none bg-white">
+              <option>Client Income</option>
+              <option>Operational</option>
+              <option>Salary</option>
+              <option>Maintenance</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">Amount (Rp)</label>
+          <div class="relative">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold">Rp</span>
+            <input type="number" min="0" required placeholder="0" class="neu-input pl-12 tabular-nums font-semibold" />
+          </div>
+        </div>
+
+      </form>
+
+      <div class="p-6 border-t border-slate-100 flex justify-end gap-3 bg-slate-50/50">
+        <button id="modalCancelBtn" type="button" class="neu-btn px-5 py-2.5 rounded-xl text-sm font-bold text-slate-600">Cancel</button>
+        <button form="txnForm" type="submit" class="neu-btn-primary px-6 py-2.5 rounded-xl text-sm font-bold shadow-md">Save Transaction</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
