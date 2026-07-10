@@ -193,7 +193,7 @@
   </g>
 
   <!-- ===== MAIN CARD MOCKUP ===== -->
-  <g transform="translate(300, 105)">
+  <g transform="translate(310, 105)">
     <!-- Card shadow + bg -->
     <rect x="-50" y="-30" width="440" height="220" rx="18" fill="url(#neuCardGrad)" filter="url(#shadowOut)"/>
     <rect x="-50" y="-30" width="440" height="220" rx="18" fill="none" stroke="#FFFFFF" stroke-width="0.5" opacity="0.6"/>
@@ -203,21 +203,21 @@
 
     <!-- Mock stat boxes -->
     <!-- Income stat -->
-    <g class="coin-float" transform="translate(-30, 5)">
+    <g class="coin-float" transform="translate(5, 5)">
       <rect x="0" y="0" width="100" height="44" rx="10" fill="#ECFDF5" filter="url(#shadowIn)"/>
       <text x="50" y="28" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="15" font-weight="800" fill="#10B981">Rp 24,3Jt</text>
       <text x="50" y="-4" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" fill="#6B7280" letter-spacing="1.5">INCOME</text>
     </g>
 
     <!-- Expense stat -->
-    <g class="coin-float" style="animation-delay:0.5s" transform="translate(85, 5)">
+    <g class="coin-float" style="animation-delay:0.5s" transform="translate(120, 5)">
       <rect x="0" y="0" width="100" height="44" rx="10" fill="#FFF1F2" filter="url(#shadowIn)"/>
       <text x="50" y="28" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="15" font-weight="800" fill="#F43F5E">Rp 9,8Jt</text>
       <text x="50" y="-4" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" fill="#6B7280" letter-spacing="1.5">EXPENSE</text>
     </g>
 
     <!-- Balance stat -->
-    <g class="coin-float" style="animation-delay:1s" transform="translate(200, 5)">
+    <g class="coin-float" style="animation-delay:1s" transform="translate(235, 5)">
       <rect x="0" y="0" width="100" height="44" rx="10" fill="#EFF6FF" filter="url(#shadowIn)"/>
       <text x="50" y="28" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="15" font-weight="800" fill="#7C9EB2">Rp 14,5Jt</text>
       <text x="50" y="-4" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="7" font-weight="600" fill="#6B7280" letter-spacing="1.5">BALANCE</text>
@@ -273,7 +273,7 @@
   <text x="540" y="92" text-anchor="middle" font-family="'Segoe UI',-apple-system,sans-serif" font-size="13" fill="#64748B" class="subtitle-slide">Financial Dashboard — Neumorphic UI Design dengan Tailwind CSS</text>
 
   <!-- ===== TECH BADGES ===== -->
-  <g transform="translate(540, 360)">
+  <g transform="translate(425, 360)">
     <g class="badge-float">
       <rect x="-145" y="-18" width="100" height="36" rx="18" fill="#FAFBFC" stroke="#DCE7F5" stroke-width="1" filter="url(#shadowOut)"/>
       <text x="-95" y="5" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="12" fill="#7C9EB2" font-weight="700">Tailwind CSS</text>
