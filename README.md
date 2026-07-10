@@ -1,8 +1,4 @@
 <p align="center">
-  <img src="banner.svg" alt="Neomorphism Web Template" width="100%">
-</p>
-
-<p align="center">
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
@@ -11,7 +7,7 @@
 
 ---
 
-**Neomorphism Web Template** adalah template dashboard finansial modern dengan desain *Neumorphic* (Neomorphism) ringan. Dibangun dengan Tailwind CSS (CDN), vanilla JavaScript modular, dan CSS murni — tanpa framework frontend berat, tanpa bundler, tanpa backend.
+Template dashboard finansial modern dengan desain *Neumorphic* (Neomorphism) ringan. Dibangun dengan Tailwind CSS (CDN), vanilla JavaScript modular, dan CSS murni — tanpa framework frontend berat, tanpa bundler, tanpa backend.
 
 Cukup buka `index.html` di browser dan semuanya berfungsi.
 
@@ -34,8 +30,6 @@ Cukup buka `index.html` di browser dan semuanya berfungsi.
 
 ## 🖥️ Preview
 
-![Preview](banner.svg)
-
 > Buka `index.html` langsung di browser — tidak perlu build step, tidak perlu server.
 
 ## 🛠️ Tech Stack
@@ -49,23 +43,16 @@ Cukup buka `index.html` di browser dan semuanya berfungsi.
 ## 📁 Struktur Folder
 
 ```
-Neomorphism-Web-Template/
 ├── index.html       # Halaman utama dashboard
 ├── style.css        # Custom CSS (tokens, neumorphic utils, animasi)
 ├── script.js        # Vanilla JS modular (7 IIFE modules)
-├── banner.svg       # Banner animasi untuk repo
 ├── AGENTS.md        # Konteks untuk AI coding assistant
 └── LICENSE          # MIT License
 ```
 
 ## 🚀 Cara Menjalankan
 
-1. **Clone repositori:**
-   ```bash
-   git clone https://github.com/SioGirsang/Neomorphism-Web-Template.git
-   cd Neomorphism-Web-Template
-   ```
-2. **Buka `index.html`** di browser (double-click atau drag ke browser).
+Buka `index.html` di browser (double-click atau drag ke browser).
 
 Tidak ada dependensi, tidak ada build step, tidak ada server.
 
