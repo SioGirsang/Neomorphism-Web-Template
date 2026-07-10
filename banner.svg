@@ -224,7 +224,7 @@
     </g>
 
     <!-- Mini chart bars -->
-    <g transform="translate(0, 75)">
+    <g transform="translate(0, 92)">
       <text x="165" y="-6" text-anchor="middle" font-family="'Segoe UI',sans-serif" font-size="8" font-weight="600" fill="#6B7280" letter-spacing="1">CASH FLOW</text>
 
       <!-- 6 grouped bars (income + expense per day) -->
