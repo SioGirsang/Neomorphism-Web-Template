@@ -268,9 +268,9 @@
   </g>
 
   <!-- ===== TITLE & SUBTITLE ===== -->
-  <text x="540" y="68" text-anchor="middle" font-family="'Segoe UI',-apple-system,sans-serif" font-size="32" font-weight="800" fill="#1E3A5F" class="title-glow">Neomorphism Web Template</text>
+  <text x="480" y="68" text-anchor="middle" font-family="'Segoe UI',-apple-system,sans-serif" font-size="32" font-weight="800" fill="#1E3A5F" class="title-glow">Neomorphism Web Template</text>
 
-  <text x="540" y="92" text-anchor="middle" font-family="'Segoe UI',-apple-system,sans-serif" font-size="13" fill="#64748B" class="subtitle-slide">Financial Dashboard — Neumorphic UI Design dengan Tailwind CSS</text>
+  <text x="480" y="92" text-anchor="middle" font-family="'Segoe UI',-apple-system,sans-serif" font-size="13" fill="#64748B" class="subtitle-slide">Financial Dashboard — Neumorphic UI Design dengan Tailwind CSS</text>
 
   <!-- ===== TECH BADGES ===== -->
   <g transform="translate(425, 360)">
@@ -293,7 +293,7 @@
   </g>
 
   <!-- ===== BOTTOM SIGNAL BARS ===== -->
-  <g transform="translate(540, 405)">
+  <g transform="translate(477, 405)">
     <rect class="signal-bar" x="-20" y="-16" width="6" height="16" rx="2" fill="#7C9EB2"/>
     <rect class="signal-bar" style="animation-delay:0.15s" x="-10" y="-22" width="6" height="22" rx="2" fill="#7C9EB2"/>
     <rect class="signal-bar" style="animation-delay:0.3s" x="0" y="-28" width="6" height="28" rx="2" fill="#7C9EB2"/>
